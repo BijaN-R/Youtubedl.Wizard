@@ -1,5 +1,8 @@
 ﻿# youtube-dl.wizard
 A  GUI wizard for [youtube-dl](https://github.com/ytdl-org/youtube-dl/blob/master/README.md) in windows, that helps you to download from youtube without struggling with command line complexities. 
+## Screenshot
+![screenshot](screenshot.png)
+
 ## Download link
 - [Youtubedl.Wizard](https://github.com/BijaN-R/Youtubedl.Wizard/releases/latest)
 
