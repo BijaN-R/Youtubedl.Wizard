@@ -12,9 +12,11 @@ namespace Youtubedl.Wizard.View {
             SaveFolderTextBox.Text = SaveFolderBrowserDialog.SelectedPath;
         }
 
-        private void retriveButton_Click(object sender, EventArgs e) {
+        private void retrieveButton_Click(object sender, EventArgs e) {
             videoCombo.Items.Clear();
             audioCmb.Items.Clear();
+            videoCombo.Text = "";
+            audioCmb.Text = "";
             services.RetriveData(youtubeUrlTextBox.Text);
             services.FillVideoQualityList();
             services.FillSubtitleList();
@@ -30,6 +32,7 @@ namespace Youtubedl.Wizard.View {
 
         private void FillSubtitleComboBox() {
             subtitleCmb.Items.Clear();
+            subtitleCmb.Text = "";
             if (AutoCaptionCheckBox.Checked) {
                 subtitleCmb.Items.AddRange(services.GetSubtitleComboList(services.videoData.autoCaptionSubtitles, 7));
             }

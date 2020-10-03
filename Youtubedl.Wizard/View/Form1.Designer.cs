@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.youtubeUrlTextBox = new System.Windows.Forms.TextBox();
-            this.retriveButton = new System.Windows.Forms.Button();
+            this.retrieveButton = new System.Windows.Forms.Button();
             this.youtubeUrlLabel = new System.Windows.Forms.Label();
             this.downloadButton = new System.Windows.Forms.Button();
             this.videoCombo = new System.Windows.Forms.ComboBox();
@@ -51,15 +51,15 @@
             this.youtubeUrlTextBox.Size = new System.Drawing.Size(285, 20);
             this.youtubeUrlTextBox.TabIndex = 2;
             // 
-            // retriveButton
+            // retrieveButton
             // 
-            this.retriveButton.Location = new System.Drawing.Point(405, 59);
-            this.retriveButton.Name = "retriveButton";
-            this.retriveButton.Size = new System.Drawing.Size(90, 22);
-            this.retriveButton.TabIndex = 3;
-            this.retriveButton.Text = "Retrieve data";
-            this.retriveButton.UseVisualStyleBackColor = true;
-            this.retriveButton.Click += new System.EventHandler(this.retriveButton_Click);
+            this.retrieveButton.Location = new System.Drawing.Point(405, 59);
+            this.retrieveButton.Name = "retrieveButton";
+            this.retrieveButton.Size = new System.Drawing.Size(90, 22);
+            this.retrieveButton.TabIndex = 3;
+            this.retrieveButton.Text = "Retrieve data";
+            this.retrieveButton.UseVisualStyleBackColor = true;
+            this.retrieveButton.Click += new System.EventHandler(this.retrieveButton_Click);
             // 
             // youtubeUrlLabel
             // 
@@ -229,7 +229,7 @@
             this.Controls.Add(this.optionsGroupBox);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.youtubeUrlLabel);
-            this.Controls.Add(this.retriveButton);
+            this.Controls.Add(this.retrieveButton);
             this.Controls.Add(this.youtubeUrlTextBox);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1095, 370);
@@ -246,7 +246,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox youtubeUrlTextBox;
-        private System.Windows.Forms.Button retriveButton;
+        private System.Windows.Forms.Button retrieveButton;
         private System.Windows.Forms.Label youtubeUrlLabel;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.ComboBox videoCombo;
