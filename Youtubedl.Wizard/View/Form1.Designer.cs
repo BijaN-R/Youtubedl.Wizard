@@ -49,14 +49,14 @@
             this.youtubeUrlTextBox.Location = new System.Drawing.Point(114, 60);
             this.youtubeUrlTextBox.Name = "youtubeUrlTextBox";
             this.youtubeUrlTextBox.Size = new System.Drawing.Size(285, 20);
-            this.youtubeUrlTextBox.TabIndex = 0;
+            this.youtubeUrlTextBox.TabIndex = 2;
             // 
             // retriveButton
             // 
             this.retriveButton.Location = new System.Drawing.Point(405, 59);
             this.retriveButton.Name = "retriveButton";
             this.retriveButton.Size = new System.Drawing.Size(90, 22);
-            this.retriveButton.TabIndex = 1;
+            this.retriveButton.TabIndex = 3;
             this.retriveButton.Text = "Retrieve data";
             this.retriveButton.UseVisualStyleBackColor = true;
             this.retriveButton.Click += new System.EventHandler(this.retriveButton_Click);
@@ -66,9 +66,9 @@
             this.youtubeUrlLabel.AutoSize = true;
             this.youtubeUrlLabel.Location = new System.Drawing.Point(12, 63);
             this.youtubeUrlLabel.Name = "youtubeUrlLabel";
-            this.youtubeUrlLabel.Size = new System.Drawing.Size(96, 13);
+            this.youtubeUrlLabel.Size = new System.Drawing.Size(57, 13);
             this.youtubeUrlLabel.TabIndex = 2;
-            this.youtubeUrlLabel.Text = "Youtube video url: ";
+            this.youtubeUrlLabel.Text = "Video url : ";
             // 
             // downloadButton
             // 
@@ -76,7 +76,7 @@
             this.downloadButton.Location = new System.Drawing.Point(497, 296);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(75, 23);
-            this.downloadButton.TabIndex = 3;
+            this.downloadButton.TabIndex = 5;
             this.downloadButton.Text = "Dowload";
             this.downloadButton.UseVisualStyleBackColor = true;
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
@@ -89,7 +89,7 @@
             this.videoCombo.Location = new System.Drawing.Point(102, 40);
             this.videoCombo.Name = "videoCombo";
             this.videoCombo.Size = new System.Drawing.Size(285, 21);
-            this.videoCombo.TabIndex = 4;
+            this.videoCombo.TabIndex = 0;
             this.videoCombo.SelectedIndexChanged += new System.EventHandler(this.videoCombo_SelectedIndexChanged);
             // 
             // audioCmb
@@ -100,7 +100,7 @@
             this.audioCmb.Location = new System.Drawing.Point(102, 67);
             this.audioCmb.Name = "audioCmb";
             this.audioCmb.Size = new System.Drawing.Size(285, 21);
-            this.audioCmb.TabIndex = 4;
+            this.audioCmb.TabIndex = 1;
             // 
             // subtitleCmb
             // 
@@ -110,11 +110,11 @@
             this.subtitleCmb.Location = new System.Drawing.Point(102, 94);
             this.subtitleCmb.Name = "subtitleCmb";
             this.subtitleCmb.Size = new System.Drawing.Size(285, 21);
-            this.subtitleCmb.TabIndex = 4;
+            this.subtitleCmb.TabIndex = 2;
             // 
             // optionsGroupBox
             // 
-            this.optionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.optionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.optionsGroupBox.Controls.Add(this.AutoCaptionCheckBox);
             this.optionsGroupBox.Controls.Add(this.subtitleLabel);
             this.optionsGroupBox.Controls.Add(this.AudioLabel);
@@ -125,7 +125,7 @@
             this.optionsGroupBox.Location = new System.Drawing.Point(12, 100);
             this.optionsGroupBox.Name = "optionsGroupBox";
             this.optionsGroupBox.Size = new System.Drawing.Size(560, 162);
-            this.optionsGroupBox.TabIndex = 5;
+            this.optionsGroupBox.TabIndex = 4;
             this.optionsGroupBox.TabStop = false;
             this.optionsGroupBox.Text = "Options";
             // 
@@ -135,7 +135,7 @@
             this.AutoCaptionCheckBox.Location = new System.Drawing.Point(393, 97);
             this.AutoCaptionCheckBox.Name = "AutoCaptionCheckBox";
             this.AutoCaptionCheckBox.Size = new System.Drawing.Size(86, 17);
-            this.AutoCaptionCheckBox.TabIndex = 7;
+            this.AutoCaptionCheckBox.TabIndex = 3;
             this.AutoCaptionCheckBox.Text = "Auto caption";
             this.AutoCaptionCheckBox.UseVisualStyleBackColor = true;
             this.AutoCaptionCheckBox.CheckedChanged += new System.EventHandler(this.AutoCaptionCheckBox_CheckedChanged);
@@ -177,14 +177,15 @@
             this.SaveFolderTextBox.Name = "SaveFolderTextBox";
             this.SaveFolderTextBox.ReadOnly = true;
             this.SaveFolderTextBox.Size = new System.Drawing.Size(285, 20);
-            this.SaveFolderTextBox.TabIndex = 6;
+            this.SaveFolderTextBox.TabIndex = 0;
+            this.SaveFolderTextBox.TabStop = false;
             // 
             // SaveFolderButton
             // 
             this.SaveFolderButton.Location = new System.Drawing.Point(405, 33);
             this.SaveFolderButton.Name = "SaveFolderButton";
             this.SaveFolderButton.Size = new System.Drawing.Size(90, 22);
-            this.SaveFolderButton.TabIndex = 7;
+            this.SaveFolderButton.TabIndex = 1;
             this.SaveFolderButton.Text = "Select Folder";
             this.SaveFolderButton.UseVisualStyleBackColor = true;
             this.SaveFolderButton.Click += new System.EventHandler(this.SaveFolderButton_Click);
@@ -194,9 +195,9 @@
             this.SaveFolderLable.AutoSize = true;
             this.SaveFolderLable.Location = new System.Drawing.Point(12, 37);
             this.SaveFolderLable.Name = "SaveFolderLable";
-            this.SaveFolderLable.Size = new System.Drawing.Size(90, 13);
+            this.SaveFolderLable.Size = new System.Drawing.Size(93, 13);
             this.SaveFolderLable.TabIndex = 8;
-            this.SaveFolderLable.Text = "Download folder: ";
+            this.SaveFolderLable.Text = "Download folder : ";
             // 
             // convertToSrtButton
             // 
@@ -207,7 +208,7 @@
             this.convertToSrtButton.Location = new System.Drawing.Point(12, 296);
             this.convertToSrtButton.Name = "convertToSrtButton";
             this.convertToSrtButton.Size = new System.Drawing.Size(197, 23);
-            this.convertToSrtButton.TabIndex = 9;
+            this.convertToSrtButton.TabIndex = 6;
             this.convertToSrtButton.Text = "Convert VTT subtitle to srt";
             this.convertToSrtButton.UseVisualStyleBackColor = false;
             this.convertToSrtButton.Click += new System.EventHandler(this.convertToSrtButton_Click);
@@ -231,6 +232,8 @@
             this.Controls.Add(this.retriveButton);
             this.Controls.Add(this.youtubeUrlTextBox);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1095, 370);
+            this.MinimumSize = new System.Drawing.Size(600, 290);
             this.Name = "StartForm";
             this.Text = "youtube-dl wizard";
             this.optionsGroupBox.ResumeLayout(false);
