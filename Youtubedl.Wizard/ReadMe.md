@@ -1,5 +1,8 @@
 ﻿# youtube-dl.wizard
 A  GUI wizard for [youtube-dl](https://github.com/ytdl-org/youtube-dl/blob/master/README.md) in windows, that helps you to download from youtube without struggling with command line complexities. 
+## Download link
+- [Youtubedl.Wizard](https://github.com/BijaN-R/Youtubedl.Wizard/releases/latest)
+
 ## Installation
 First of all you need to install `youtube-dl`. Download it from [here](https://yt-dl.org/latest/youtube-dl.exe) and place it in any System Environment path like `C:\Windows` (**BUT NOT IN** `C:\Windows\System32` , it won't work).  Then you can download `Youtubedl.Wizard.exe`  from [here](https://github.com/BijaN-R/Youtubedl.Wizard/releases/latest) , it will interact with youtube-dl for you.
 ## Description
