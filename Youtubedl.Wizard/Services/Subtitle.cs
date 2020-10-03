@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Youtubedl.Wizzard.Services {
+namespace Youtubedl.Wizard.Services {
     public class Subtitle {
         public void FixSubtitle(string file) {
             string subtitle = string.Empty;

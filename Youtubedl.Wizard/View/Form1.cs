@@ -1,9 +1,9 @@
 ﻿using System;
-using Youtubedl.Wizzard.Services;
+using Youtubedl.Wizard.Services;
 using System.Windows.Forms;
-using Youtubedl.Wizzard.Models;
+using Youtubedl.Wizard.Models;
 
-namespace Youtubedl.Wizzard.View {
+namespace Youtubedl.Wizard.View {
     public partial class StartForm : Form {
         YoutubedlWizard services = new YoutubedlWizard();
         Subtitle subtitle = new Subtitle();

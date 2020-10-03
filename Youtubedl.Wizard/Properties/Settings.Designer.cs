@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Youtubedl.Wizzard.Properties {
+namespace Youtubedl.Wizard.Properties {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

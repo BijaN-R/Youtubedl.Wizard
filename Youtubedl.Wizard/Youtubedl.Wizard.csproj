@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CDF733AA-CD4C-4DAD-92CD-24D9AE1FFC3A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Youtubedl.Wizzard</RootNamespace>
-    <AssemblyName>Youtubedl.Wizzard</AssemblyName>
+    <RootNamespace>Youtubedl.Wizard</RootNamespace>
+    <AssemblyName>Youtubedl.Wizard</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

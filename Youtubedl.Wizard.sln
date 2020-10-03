@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youtubedl.Wizzard", "Youtubedl.Wizzard\Youtubedl.Wizzard.csproj", "{CDF733AA-CD4C-4DAD-92CD-24D9AE1FFC3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youtubedl.Wizard", "Youtubedl.Wizard\Youtubedl.Wizard.csproj", "{CDF733AA-CD4C-4DAD-92CD-24D9AE1FFC3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

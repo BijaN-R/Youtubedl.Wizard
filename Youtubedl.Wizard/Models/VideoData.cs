@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Youtubedl.Wizzard.Models {
+namespace Youtubedl.Wizard.Models {
     public class VideoData {
         public VideoData() {
             this.formats = new List<string>();

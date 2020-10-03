@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Youtubedl.Wizzard.Models;
+using Youtubedl.Wizard.Models;
 
-namespace Youtubedl.Wizzard.Services {
+namespace Youtubedl.Wizard.Services {
     public class YoutubedlWizard {
         readonly string[] SPLIT_ARRAY = new string[] { "\r\n", "\n", "\r" };
         internal VideoData videoData;

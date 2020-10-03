@@ -1,4 +1,4 @@
-﻿namespace Youtubedl.Wizzard.View {
+﻿namespace Youtubedl.Wizard.View {
     partial class StartForm {
         /// <summary>
         /// Required designer variable.
@@ -200,7 +200,7 @@
             // 
             // convertToSrtButton
             // 
-            this.convertToSrtButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.convertToSrtButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.convertToSrtButton.BackColor = System.Drawing.Color.Silver;
             this.convertToSrtButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.convertToSrtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -230,6 +230,7 @@
             this.Controls.Add(this.youtubeUrlLabel);
             this.Controls.Add(this.retriveButton);
             this.Controls.Add(this.youtubeUrlTextBox);
+            this.MaximizeBox = false;
             this.Name = "StartForm";
             this.Text = "youtube-dl wizard";
             this.optionsGroupBox.ResumeLayout(false);

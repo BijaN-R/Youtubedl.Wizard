@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace Youtubedl.Wizzard.Services {
+namespace Youtubedl.Wizard.Services {
     class Utility {
         public static string JustifyString(string text, int len) {
             for (int i = text.Length; i < len; i++) {

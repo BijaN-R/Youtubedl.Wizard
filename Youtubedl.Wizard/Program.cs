@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Youtubedl.Wizzard.View;
+using Youtubedl.Wizard.View;
 
-namespace Youtubedl.Wizzard {
+namespace Youtubedl.Wizard {
     static class Program {
         /// <summary>
         /// The main entry point for the application.
