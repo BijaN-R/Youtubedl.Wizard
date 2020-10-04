@@ -99,7 +99,7 @@ namespace Youtubedl.Wizard.Services {
         private string OptionsBuilder(DownloadItems downloadItems) {
             int subValue = -1;
             string subtitleFormat = downloadItems.subtitleValue.SubtitleFormat;
-            string LanguageCode = downloadItems.subtitleValue.LanguageCode;
+            string languageCode = downloadItems.subtitleValue.LanguageCode;
             bool hasVideo = Int32.Parse(downloadItems.videoValue) > -1;
             bool hasAudio = Int32.Parse(downloadItems.audioValue) > -1;
             bool hasSubtitle = !Int32.TryParse(subtitleFormat, out subValue) || subValue > -1;
@@ -112,10 +112,10 @@ namespace Youtubedl.Wizard.Services {
                 }
                 if (hasSubtitle) {
                     if (downloadItems.autoCaption) {
-                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
+                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode}");
                     }
                     else {
-                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
+                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode}");
                     }
                 }
             }
@@ -123,19 +123,19 @@ namespace Youtubedl.Wizard.Services {
                 arguments.Append($" -f {downloadItems.audioValue}");
                 if (hasSubtitle) {
                     if (downloadItems.autoCaption) {
-                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
+                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode}");
                     }
                     else {
-                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
+                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode}");
                     }
                 }
             }
             else if (hasSubtitle) {
                 if (downloadItems.autoCaption) {
-                    arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode} --skip-download");
+                    arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode} --skip-download");
                 }
                 else {
-                    arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode} --skip-download");
+                    arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode} --skip-download");
                 }
             }
             arguments.Append($" {downloadItems.url}");
