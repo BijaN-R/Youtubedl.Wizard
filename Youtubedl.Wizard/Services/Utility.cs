@@ -12,15 +12,15 @@ namespace Youtubedl.Wizard.Services {
             return text;
         }
 
-        public static string ExecuteFile(string fileName, string arguments, bool useShell, string directory = "") {
+        public static string ExecuteFile(string fileName, string arguments, bool hasOutput, string directory = "") {
             Process process = new Process();
-            process.StartInfo.UseShellExecute = useShell;
-            process.StartInfo.RedirectStandardOutput = !useShell;
+            process.StartInfo.UseShellExecute = !hasOutput;
+            process.StartInfo.RedirectStandardOutput = hasOutput;
             process.StartInfo.WorkingDirectory = directory;
             process.StartInfo.FileName = fileName;
             process.StartInfo.Arguments = arguments;
             process.Start();
-            if (useShell) {
+            if (!hasOutput) {
                 return "";
             }
             return process.StandardOutput.ReadToEnd();
@@ -43,18 +43,6 @@ namespace Youtubedl.Wizard.Services {
             return outString;
         }
 
-        public static void ShowAlert(string alrt) {
-            //Console.Clear();
-            for (int i = 0; i < 10; i++) {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(alrt);
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine(alrt);
-            }
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\nPress any key to continue ...");
-            Console.ReadKey();
-        }
     }
 
     public static class Extensions {

@@ -11,7 +11,7 @@ namespace Youtubedl.Wizard.Services {
             string fileName = Path.GetFileNameWithoutExtension(file);
             string fileExt = Path.GetExtension(file);
             if (fileExt.ToLower() != ".vtt") {
-                Utility.ShowAlert("File extension should be '.vtt' !!!");
+                System.Windows.Forms.MessageBox.Show("File extension should be '.vtt' !!!");
                 return;
             }
             List<SubTimes> subTimesList = new List<SubTimes>();
@@ -27,7 +27,7 @@ namespace Youtubedl.Wizard.Services {
             subtitlesList = ExtractSubsToList(subtitleParts);
             JustifyTimes(subTimesList);
             string outSubtitle = GenerateSubtitle(subTimesList, subtitlesList);
-            Utility.FileWriter(outSubtitle, fileName + "_OUT", "srt", path);
+            Utility.FileWriter(outSubtitle, fileName, "srt", path);
         }
 
         public string GenerateSubtitle(List<SubTimes> subTimesList, List<string> subtitlesList) {

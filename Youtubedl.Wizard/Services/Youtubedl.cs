@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Youtubedl.Wizard.Models;
 
 namespace Youtubedl.Wizard.Services {
@@ -10,8 +11,8 @@ namespace Youtubedl.Wizard.Services {
 
         public void RetriveData(string youtubeUrl) {
             videoData = new VideoData();
-            string formats = Utility.ExecuteFile("youtube-dl.exe", $" -F {youtubeUrl}", false);
-            string subtitles = Utility.ExecuteFile("youtube-dl.exe", $" --list-subs {youtubeUrl}", false);
+            string formats = Utility.ExecuteFile("youtube-dl.exe", $" -F {youtubeUrl}", true);
+            string subtitles = Utility.ExecuteFile("youtube-dl.exe", $" --list-subs {youtubeUrl}", true);
 
             videoData.formats.AddRange(formats.Split(SPLIT_ARRAY, StringSplitOptions.RemoveEmptyEntries));
             videoData.subtitles.AddRange(subtitles.Split(SPLIT_ARRAY, StringSplitOptions.RemoveEmptyEntries));
@@ -90,53 +91,56 @@ namespace Youtubedl.Wizard.Services {
             }
         }
 
-        public void Download(string url, object videoValue, object audioValue, object subtitleValue, bool autoCaption, string directory) {
-            int subValue;
-            string subtitleFormat = ((SubtitleValues)subtitleValue).SubtitleFormat;
-            string languageCode = ((SubtitleValues)subtitleValue).LanguageCode;
-            bool hasVideo = Int32.Parse(videoValue.ToString()) > -1;
-            bool hasAudio = Int32.Parse(audioValue.ToString()) > -1;
-            bool hasSubtitle = !Int32.TryParse(subtitleFormat, out subValue) || Int32.Parse(subtitleFormat) > -1;
-            string arguments = "";
+        public void Download(DownloadItems downloadItems, string directory) {
+            string arguments = OptionsBuilder(downloadItems);
+            Utility.ExecuteFile("youtube-dl.exe", arguments, false, directory);
+        }
 
+        private string OptionsBuilder(DownloadItems downloadItems) {
+            int subValue = -1;
+            string subtitleFormat = downloadItems.subtitleValue.SubtitleFormat;
+            string LanguageCode = downloadItems.subtitleValue.LanguageCode;
+            bool hasVideo = Int32.Parse(downloadItems.videoValue) > -1;
+            bool hasAudio = Int32.Parse(downloadItems.audioValue) > -1;
+            bool hasSubtitle = !Int32.TryParse(subtitleFormat, out subValue) || subValue > -1;
+
+            StringBuilder arguments = new StringBuilder();
             if (hasVideo) {
-                arguments += $" -f {videoValue}";
+                arguments.Append($" -f {downloadItems.videoValue}");
                 if (hasAudio) {
-                    arguments += $"+{audioValue}";
+                    arguments.Append($"+{downloadItems.audioValue}");
                 }
                 if (hasSubtitle) {
-                    if (autoCaption) {
-                        arguments += $" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode}";
+                    if (downloadItems.autoCaption) {
+                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
                     }
                     else {
-                        arguments += $" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode}";
+                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
                     }
                 }
             }
             else if (hasAudio) {
-                arguments += $" -f {audioValue}";
+                arguments.Append($" -f {downloadItems.audioValue}");
                 if (hasSubtitle) {
-                    if (autoCaption) {
-                        arguments += $" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode}";
+                    if (downloadItems.autoCaption) {
+                        arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
                     }
                     else {
-                        arguments += $" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode}";
+                        arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode}");
                     }
                 }
             }
             else if (hasSubtitle) {
-                if (autoCaption) {
-                    arguments += $" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {languageCode} --skip-download";
+                if (downloadItems.autoCaption) {
+                    arguments.Append($" --write-auto-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode} --skip-download");
                 }
                 else {
-                    arguments += $" --write-sub --sub-format {subtitleFormat} --sub-lang {languageCode} --skip-download";
+                    arguments.Append($" --write-sub --sub-format {subtitleFormat} --sub-lang {LanguageCode} --skip-download");
                 }
             }
+            arguments.Append($" {downloadItems.url}");
 
-            arguments += $" {url}";
-            //System.Windows.Forms.MessageBox.Show(arguments);
-            Utility.ExecuteFile("youtube-dl.exe", arguments, true, directory);
+            return arguments.ToString();
         }
-
     }
 }

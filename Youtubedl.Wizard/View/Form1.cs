@@ -63,11 +63,15 @@ namespace Youtubedl.Wizard.View {
             if (subtitleCmb.SelectedIndex == -1) {
                 subtitleCmb.SelectedIndex = 0;
             }
-            services.Download(youtubeUrlTextBox.Text,
-                ((ComboboxItem)videoCombo.SelectedItem).Value,
-                ((ComboboxItem)audioCmb.SelectedItem).Value,
-                ((ComboboxItem)subtitleCmb.SelectedItem).Value,
-                AutoCaptionCheckBox.Checked, SaveFolderBrowserDialog.SelectedPath);
+
+            DownloadItems downloadItems = new DownloadItems();
+            downloadItems.url = youtubeUrlTextBox.Text;
+            downloadItems.videoValue = ((ComboboxItem)videoCombo.SelectedItem).Value.ToString();
+            downloadItems.audioValue = ((ComboboxItem)audioCmb.SelectedItem).Value.ToString();
+            downloadItems.subtitleValue = (SubtitleValues)((ComboboxItem)subtitleCmb.SelectedItem).Value;
+            downloadItems.autoCaption = AutoCaptionCheckBox.Checked;
+
+            services.Download(downloadItems, SaveFolderBrowserDialog.SelectedPath);
         }
 
         private void SaveFolderButton_Click(object sender, EventArgs e) {
