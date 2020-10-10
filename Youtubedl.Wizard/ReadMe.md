@@ -22,6 +22,6 @@ This wizard only support this features:
 - And as an extra feature you can convert `vtt` subtitles to `srt` (this feature is not based on `youtube-dl`).
 
 ## Usage 
-Run `Youtubedl.Wizard.exe` and paste your video url in `Video url` textbox. Click `Retrieve data` button to load video/audio and subtitle format lists. Then in `Options` area select any video, audio or subtitle you want and push download button to download them (check `Auto caption` checkbox to see auto generated subtitles). 
+Run `Youtubedl.Wizard.exe` and paste your video url in `Video url` textbox. Click `Retrieve data` button to load video/audio and subtitle format lists. Then in `Options` area select every video, audio or subtitle you want and push download button to download them (check `Auto caption` checkbox to see auto generated subtitles). 
 
 And also there is a `Convert vtt subtitle to srt` button that you can convert any vtt subtitle to srt by clicking on it.
