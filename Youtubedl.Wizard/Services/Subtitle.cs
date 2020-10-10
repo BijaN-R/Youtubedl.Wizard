@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Youtubedl.Wizard.Services {
@@ -31,16 +32,16 @@ namespace Youtubedl.Wizard.Services {
         }
 
         public string GenerateSubtitle(List<SubTimes> subTimesList, List<string> subtitlesList) {
-            string body = string.Empty;
+            StringBuilder body = new StringBuilder();
             int counter = 1;
             for (int i = 0; i < subtitlesList.Count; i++) {
                 if (string.IsNullOrWhiteSpace(subtitlesList[i])) { continue; }
-                body += counter.ToString().AddNewLine();
-                body += PrintTimeStamp(subTimesList[i]).AddNewLine();
-                body += subtitlesList[i].AddNewLine().AddNewLine();
+                body.AppendLine(counter.ToString());
+                body.AppendLine(PrintTimeStamp(subTimesList[i]));
+                body.AppendLine($"{subtitlesList[i]}\r\n");
                 counter++;
             }
-            return body;
+            return body.ToString();
         }
 
         public string PrintTimeStamp(SubTimes subTimes) {
@@ -88,8 +89,8 @@ namespace Youtubedl.Wizard.Services {
             List<SubTimes> subTimesList = new List<SubTimes>();
             for (int i = 0; i < subtitleParts.Count; i += 9) {
                 SubTimes subTimes = new SubTimes();
-                subTimes.startTime = new TimeSpan(0, subtitleParts[i].ToInt(), subtitleParts[i + 1].ToInt(), subtitleParts[i + 2].ToInt(), subtitleParts[i + 3].ToInt());
-                subTimes.endTime = new TimeSpan(0, subtitleParts[i + 4].ToInt(), subtitleParts[i + 5].ToInt(), subtitleParts[i + 6].ToInt(), subtitleParts[i + 7].ToInt());
+                subTimes.startTime = new TimeSpan(0, Convert.ToInt32(subtitleParts[i]), Convert.ToInt32(subtitleParts[i + 1]), Convert.ToInt32(subtitleParts[i + 2]), Convert.ToInt32(subtitleParts[i + 3]));
+                subTimes.endTime = new TimeSpan(0, Convert.ToInt32(subtitleParts[i + 4]), Convert.ToInt32(subtitleParts[i + 5]), Convert.ToInt32(subtitleParts[i + 6]), Convert.ToInt32(subtitleParts[i + 7]));
                 subTimesList.Add(subTimes);
             }
             return subTimesList;

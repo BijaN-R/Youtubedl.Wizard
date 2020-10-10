@@ -43,14 +43,9 @@ namespace Youtubedl.Wizard.Services {
             return outString;
         }
 
+        public static bool ContainsIgnoreCase(string text, string value) {
+            return text.ToLower().Contains(value.ToLower());
+        }
     }
 
-    public static class Extensions {
-        public static int ToInt(this string str) {
-            return Convert.ToInt32(str);
-        }
-        public static string AddNewLine(this string str) {
-            return str + "\n";
-        }
-    }
 }

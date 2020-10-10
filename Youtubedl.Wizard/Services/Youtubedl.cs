@@ -54,16 +54,19 @@ namespace Youtubedl.Wizard.Services {
         }
 
         public void FillVideoQualityList() {
+            bool startFlag = false;
             foreach (var item in videoData.formats) {
-                List<string> itemParts = new List<string>(item.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
-
-                if (Char.IsDigit(itemParts.FirstOrDefault()[0])) {
-                    if (item.Contains("audio only")) {
+                if (startFlag) {
+                    if (Utility.ContainsIgnoreCase(item, "audio only")) {
                         videoData.audioQuality.Add(item);
                     }
                     else {
                         videoData.videoQuality.Add(item);
                     }
+                }
+
+                if (Utility.ContainsIgnoreCase(item, "format code  extension")) {
+                    startFlag = true;
                 }
             }
         }
@@ -71,16 +74,16 @@ namespace Youtubedl.Wizard.Services {
         public void FillSubtitleList() {
             int flag = 0;
             foreach (var item in videoData.subtitles) {
-                if (item.ToLower().Contains(("Available automatic captions").ToLower())) {
+                if (Utility.ContainsIgnoreCase(item, "Available automatic captions")) {
                     flag = 1;
                     continue;
                 }
-                else if (item.ToLower().Contains(("Available subtitles").ToLower())) {
+                else if (Utility.ContainsIgnoreCase(item, "Available subtitles")) {
                     flag = 2;
                     continue;
                 }
 
-                if (!item.ToLower().Contains(("Language formats").ToLower())) {
+                if (!Utility.ContainsIgnoreCase(item, "Language formats")) {
                     if (flag == 1) {
                         videoData.autoCaptionSubtitles.Add(item);
                     }
@@ -100,8 +103,8 @@ namespace Youtubedl.Wizard.Services {
             int subValue = -1;
             string subtitleFormat = downloadItems.subtitleValue.SubtitleFormat;
             string languageCode = downloadItems.subtitleValue.LanguageCode;
-            bool hasVideo = Int32.Parse(downloadItems.videoValue) > -1;
-            bool hasAudio = Int32.Parse(downloadItems.audioValue) > -1;
+            bool hasVideo = downloadItems.videoValue != "-1";
+            bool hasAudio = downloadItems.audioValue != "-1";
             bool hasSubtitle = !Int32.TryParse(subtitleFormat, out subValue) || subValue > -1;
 
             StringBuilder arguments = new StringBuilder();
